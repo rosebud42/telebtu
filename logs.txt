@@ -1,0 +1,16 @@
+
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /menu     -     Time : 2024-10-19 10:14:30.557118
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /commands     -     Time : 2024-10-19 10:38:04.389338
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /komutlar     -     Time : 2024-10-19 10:38:04.502532
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /commands     -     Time : 2024-10-19 10:38:09.610829
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /komutlar     -     Time : 2024-10-19 10:43:49.524506
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /men     -     Time : 2024-10-19 10:43:56.423806
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /menu 15     -     Time : 2024-10-19 10:44:03.503631
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /abonelik     -     Time : 2024-10-19 10:44:13.540116
+New menu subscriber! User id : 5075083320     -     Username : efekanaksoy35
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /menu 15     -     Time : 2024-10-19 10:44:23.268355
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /men     -     Time : 2024-10-19 10:44:25.726301
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /abonelik     -     Time : 2024-10-19 10:44:28.898915
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /abonelikiptal     -     Time : 2024-10-19 10:44:30.972603
+Subscriber left! User id : 5075083320     -     Username : efekanaksoy35
+BASIC LOG: User id : 5075083320     -     Username : efekanaksoy35     -     Content : /aylikmenu     -     Time : 2024-10-19 10:44:33.108315
