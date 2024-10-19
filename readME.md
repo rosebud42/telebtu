@@ -35,7 +35,7 @@
 
 ![Proje Gösterimi][product-screenshot]
 
-Proje temel olarak Bursa Teknik Üniversitesi yemekhane biriminin kendi sitesinde yayınladığı pdf'i okumakta menüyü kullanıcılara telegram üzerinden iletmeyi hedeflemektedir. Üstteki resimde basit komut örnekleri resmedilmiştir. Detaylı ve admin özel komutlar için <a href=#usage>Kullanım</a> kısmını inceleybilirsiniz.
+Proje temel olarak Bursa Teknik Üniversitesi yemekhane biriminin kendi sitesinde yayınladığı pdf'i okumakta ve menüyü kullanıcılara telegram üzerinden iletmeyi hedeflemektedir. Üstteki resimde basit komut örnekleri resmedilmiştir. Detaylı ve admin özel komutlar için <a href=#kullanım>Kullanım</a> kısmını inceleybilirsiniz.
 
 <p align="right">(<a href="#readme-top">başa dön</a>)</p>
 
@@ -66,7 +66,7 @@ Bu adımları takip ederek bu projeyi kurabilirsiniz.
    ```sh
    python -m venv venv
    ```
-   Kurduğunuz ortamı aktif kale getirin
+   Kurduğunuz ortamı aktif kale getirin <br/>
    Windows için:
    ```sh
    venv/Scripts/activate.ps1
@@ -96,7 +96,7 @@ Bu adımları takip ederek bu projeyi kurabilirsiniz.
 
 ## Kullanım
 
-Projeyi çalıştırdıktan sonra kullanabilecek komutlar ve açıklamaları şu şekilde:
+Projeyi çalıştırdıktan sonra kullanabilecek komutlar ve açıklamaları şu şekilde: <br/>
 /start -> Botu başlatmak için kullanılır. <br/>
 /komutlar -> Komutlara ulaşmak için kullanılır.<br/>
 /menu 16 -> Ayın 16.günündeki menüyü iletir. Gün verilmeden '/menu' şeklinde kullanıldığında aynı günün menüsünü iletir.<br/>
