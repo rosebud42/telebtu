@@ -2,7 +2,7 @@ import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 import difflib
 import datetime
-from flask import Flask
+from flask import Flask,request
 from threading import Thread
 import pdfOperator
 import dbOperator
@@ -13,18 +13,20 @@ import hashlib
 import pytz
 import fitz
 import os 
-health_app = Flask(__name__)
-TOKEN = os.environ.get("telegram-TOKEN")
-#TOKEN = "your-token"
+
+#TOKEN = os.environ.get("telegram-TOKEN")
+TOKEN = "7507312901:AAFUe2VLrhLvc7ZVUTpcjgAOBQ5MZe6rNgo"
 print(f"{TOKEN} initialized.")  
 
+app = Flask(__name__)
 
-@health_app.route('/health', methods=['GET'])
+@app.route('/health', methods=['GET'])
 def health_check():
     return 'OK', 200
 
 def run_flask():
-    health_app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=8000)
+
 
 available_commands = {
     '/abonelik': 'abonelik',
@@ -295,6 +297,7 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 if __name__ == '__main__':
     flask_thread = Thread(target=run_flask)
     flask_thread.start()
+    tm.sleep(40)
     application = ApplicationBuilder().token(token=TOKEN).build()
     
     application.job_queue.run_daily(sendMenu,days=(1,2,3,4,5), time=time(9,0,tzinfo=istanbul_tz)) 
@@ -307,4 +310,5 @@ if __name__ == '__main__':
     application.add_handler(MessageHandler(filters.Document.ALL, pdfyukle))
     application.add_handler(message_handlerr)
     application.add_handler(command_handler)
+
     application.run_polling()
