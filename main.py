@@ -11,8 +11,10 @@ import hashlib
 import pytz
 import fitz
 
-# TOKEN = 'your-token' tokeninizi buradan düzenleyebilir veya os kullanabilirsiniz
 TOKEN = os.environ.get("telegram-TOKEN")
+#TOKEN = "your-url"
+print(f"{TOKEN} initialized.")
+
 
 available_commands = {
     '/abonelik': 'abonelik',
