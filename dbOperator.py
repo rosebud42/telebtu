@@ -37,44 +37,44 @@ class DbOperator():
         self.hash_dict.clear()
         return toreturn
 
- def addSub(self,sender):
-        username = sender.username
-        chat_id = sender.id
-        if not username:
-            username = "Unknown"
-        userId = sender.id
-        cursor = self.cursor
-        current_subs = self.getSubs()
-        print(current_subs)
-        check = self.checkSub(userId)
-        if check:
-            return False
-        else:
-            if current_subs:
-                execute = f'''INSERT INTO subs (chat_id, user_id, username) VALUES ('{chat_id}','{userId}','{username}')'''
+     def addSub(self,sender):
+            username = sender.username
+            chat_id = sender.id
+            if not username:
+                username = "Unknown"
+            userId = sender.id
+            cursor = self.cursor
+            current_subs = self.getSubs()
+            print(current_subs)
+            check = self.checkSub(userId)
+            if check:
+                return False
             else:
-                execute = f'''INSERT INTO subs (chat_id, user_id, username, is_staff) VALUES ('{chat_id}','{userId}','{username}',TRUE)'''
-
-
-        cursor.execute(execute)
-        self.connection.commit()
-        return True
-
-        cursor.execute(execute)
-        self.connection.commit()
-        return True
+                if current_subs:
+                    execute = f'''INSERT INTO subs (chat_id, user_id, username) VALUES ('{chat_id}','{userId}','{username}')'''
+                else:
+                    execute = f'''INSERT INTO subs (chat_id, user_id, username, is_staff) VALUES ('{chat_id}','{userId}','{username}',TRUE)'''
     
-    def deleteSub(self,sender):
-        cursor = self.cursor
-        userId = sender.id
-        check = self.checkSub(userId)
-        if check:
-            statement = '''DELETE FROM subs WHERE user_id = ?'''
-            cursor.execute(statement, (userId,))
+    
+            cursor.execute(execute)
             self.connection.commit()
             return True
-        else:
-            return False
+    
+            cursor.execute(execute)
+            self.connection.commit()
+            return True
+        
+        def deleteSub(self,sender):
+            cursor = self.cursor
+            userId = sender.id
+            check = self.checkSub(userId)
+            if check:
+                statement = '''DELETE FROM subs WHERE user_id = ?'''
+                cursor.execute(statement, (userId,))
+                self.connection.commit()
+                return True
+            else:
+                return False
     def checkSub(self,userid):
         cursor = self.cursor
         statement = '''SELECT username FROM subs WHERE user_id = ?'''
