@@ -283,7 +283,7 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Merhaba.. Sadece komutla çalışmaktayım. /komutlar yazarak bütün komutlara erişebilirsin.")
 
 if __name__ == '__main__':
-    tm.sleep(10)
+    tm.sleep(45)
     application = ApplicationBuilder().token(token=TOKEN).build()
     
     application.job_queue.run_daily(sendMenu,days=(1,2,3,4,5), time=time(9,0,tzinfo=istanbul_tz)) 
