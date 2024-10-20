@@ -84,8 +84,25 @@ Bu adımları takip ederek bu projeyi kurabilirsiniz.
    TOKEN = 'your-token'
    ```
    Telegram tokeniniz yoksa telegram içerisinde BotFather'dan alabilirsiniz.
-6. Eğer projeyi şuan olduğu gibi Koyeb üzerinden çalıştırmak yerine kendi bilgisayarınızda çalıştıracaksanız main.py dosyasında 21 ile 28. satır arasını ve     298 ile 300. satır arasını silmeniz gerekmektedir.<br/>
-7. Projeyi çalıştırın
+6. Eğer projeyi şuan olduğu gibi Koyeb üzerinden çalıştırmak yerine kendi bilgisayarınızda çalıştıracaksanız main.py dosyasında 21 ile 28. satır arasını ve     298 ile 300. satır arasını silmeniz gerekmektedir.<br/>Silmeniz gerek kod parçaları : 
+   ```sh
+   app = Flask(__name__)
+
+   @app.route('/health', methods=['GET'])
+   def health_check():
+     return 'OK', 200
+
+   def run_flask():
+     app.run(host='0.0.0.0', port=8000)
+   ```
+   <br/> Ve,
+   ```sh
+   flask_thread = Thread(target=run_flask)
+   flask_thread.start()
+   tm.sleep(40)
+   ```
+   
+8. Projeyi çalıştırın
    ```sh
    python main.py
    ```
