@@ -84,7 +84,8 @@ Bu adımları takip ederek bu projeyi kurabilirsiniz.
    TOKEN = 'your-token'
    ```
    Telegram tokeniniz yoksa telegram içerisinde BotFather'dan alabilirsiniz.
-6. Projeyi çalıştırın
+6. Eğer projeyi şuan olduğu gibi Koyeb üzerinden çalıştırmak yerine kendi bilgisayarınızda çalıştıracaksanız main.py dosyasında 21 ile 28. satır arasını ve     298 ile 300. satır arasını silmeniz gerekmektedir.<br/>
+7. Projeyi çalıştırın
    ```sh
    python main.py
    ```
