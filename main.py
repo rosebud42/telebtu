@@ -11,7 +11,7 @@ import hashlib
 import pytz
 import fitz
 
-TOKEN = os.environ.get("telegram-TOKEN")
+TOKEN = os.environ.get("TOKEN")
 #TOKEN = "your-url"
 print(f"{TOKEN} initialized.")
 
