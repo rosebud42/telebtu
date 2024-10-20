@@ -37,19 +37,28 @@ class DbOperator():
         self.hash_dict.clear()
         return toreturn
 
-    def addSub(self,sender):
+ def addSub(self,sender):
         username = sender.username
         chat_id = sender.id
         if not username:
             username = "Unknown"
         userId = sender.id
         cursor = self.cursor
- 
+        current_subs = self.getSubs()
+        print(current_subs)
         check = self.checkSub(userId)
         if check:
             return False
         else:
-            execute = f'''INSERT INTO subs (chat_id, user_id, username) VALUES ('{chat_id}','{userId}','{username}')'''
+            if current_subs:
+                execute = f'''INSERT INTO subs (chat_id, user_id, username) VALUES ('{chat_id}','{userId}','{username}')'''
+            else:
+                execute = f'''INSERT INTO subs (chat_id, user_id, username, is_staff) VALUES ('{chat_id}','{userId}','{username}',TRUE)'''
+
+
+        cursor.execute(execute)
+        self.connection.commit()
+        return True
 
         cursor.execute(execute)
         self.connection.commit()
