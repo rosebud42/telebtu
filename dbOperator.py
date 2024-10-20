@@ -64,17 +64,17 @@ class DbOperator():
             self.connection.commit()
             return True
         
-        def deleteSub(self,sender):
-            cursor = self.cursor
-            userId = sender.id
-            check = self.checkSub(userId)
-            if check:
-                statement = '''DELETE FROM subs WHERE user_id = ?'''
-                cursor.execute(statement, (userId,))
-                self.connection.commit()
-                return True
-            else:
-                return False
+    def deleteSub(self,sender):
+        cursor = self.cursor
+        userId = sender.id
+        check = self.checkSub(userId)
+        if check:
+            statement = '''DELETE FROM subs WHERE user_id = ?'''
+            cursor.execute(statement, (userId,))
+            self.connection.commit()
+            return True
+        else:
+            return False
     def checkSub(self,userid):
         cursor = self.cursor
         statement = '''SELECT username FROM subs WHERE user_id = ?'''
