@@ -37,6 +37,9 @@
 
 Proje temel olarak Bursa Teknik Üniversitesi yemekhane biriminin kendi sitesinde yayınladığı pdf'i okumakta ve menüyü kullanıcılara telegram üzerinden iletmeyi hedeflemektedir. Üstteki resimde basit komut örnekleri resmedilmiştir. Detaylı ve admin özel komutlar için <a href=#kullanım>Kullanım</a> kısmını inceleybilirsiniz.
 
+Bot aktif olarak telegram üzerinde çalışmaktadır.<br/>
+Bota ulaşmak için : https://t.me/telebtu_bot
+
 <p align="right">(<a href="#readme-top">başa dön</a>)</p>
 
 
