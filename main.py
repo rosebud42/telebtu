@@ -1,6 +1,7 @@
 import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 import difflib
+import os
 import datetime
 import pdfOperator
 import dbOperator
@@ -10,7 +11,8 @@ import hashlib
 import pytz
 import fitz
 
-TOKEN = 'your-token'
+# TOKEN = 'your-token' tokeninizi buradan düzenleyebilir veya os kullanabilirsiniz
+TOKEN = os.environ.get("telegram-TOKEN")
 
 available_commands = {
     '/abonelik': 'abonelik',
