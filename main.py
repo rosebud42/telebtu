@@ -14,8 +14,8 @@ import pytz
 import fitz
 import os 
 
-#TOKEN = os.environ.get("telegram-TOKEN")
-TOKEN = "7507312901:AAFUe2VLrhLvc7ZVUTpcjgAOBQ5MZe6rNgo"
+TOKEN = os.environ.get("telegram-TOKEN")
+#TOKEN = "your-token"
 print(f"{TOKEN} initialized.")  
 
 app = Flask(__name__)
