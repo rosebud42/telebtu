@@ -1,21 +1,30 @@
 import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 import difflib
-import os
 import datetime
+from flask import Flask
+from threading import Thread
 import pdfOperator
 import dbOperator
 from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, filters, CallbackQueryHandler, MessageHandler
 from datetime import time
-import hashlib
 import time as tm
+import hashlib
 import pytz
 import fitz
+import os 
+health_app = Flask(__name__)
+TOKEN = os.environ.get("telegram-TOKEN")
+#TOKEN = "your-token"
+print(f"{TOKEN} initialized.")  
 
-TOKEN = os.environ.get("TOKEN")
-#TOKEN = "your-url"
-print(f"{TOKEN} initialized.")
 
+@health_app.route('/health', methods=['GET'])
+def health_check():
+    return 'OK', 200
+
+def run_flask():
+    health_app.run(host='0.0.0.0', port=8000)
 
 available_commands = {
     '/abonelik': 'abonelik',
@@ -183,16 +192,17 @@ async def adminekle(update: Update, context: ContextTypes.DEFAULT_TYPE,args):
     adminname = update._effective_sender.username
     num = dbOp.checkStaff(user_id)
     if not args:
-            text = "Admin yapılacak kişinin kullanici id'Sini giriniz.\n Örnek kullanım: /adminekle userID \nUser id şuradan öğrenilebilir : /idogren"
+        text = "Admin yapılacak kişinin kullanici id'Sini giriniz.\n Örnek kullanım: /adminekle userID \nUser id şuradan öğrenilebilir : /idogren"
     else:
         arg_id = args
-    if num==1 and args:
-        if str(arg_id) == str(user_id):
-            text= "Kendinle ilgili işlem yapamazsın."
-        else:
-            text, check= dbOp.addStaff(arg_id=arg_id)
-            if check:
-                await context.bot.send_message(chat_id=arg_id, text=f"{adminname} isimli kişi seni admin yaptı.")
+    if num==1:
+        if args:
+            if str(arg_id) == str(user_id):
+                text= "Kendinle ilgili işlem yapamazsın."
+            else:
+                text, check= dbOp.addStaff(arg_id=arg_id)
+                if check:
+                    await context.bot.send_message(chat_id=arg_id, text=f"{adminname} isimli kişi seni admin yaptı.")
     elif num==2:
         text = "Abone degilsin. Önce /abonelik komutunu kullan."
     elif num==0:
@@ -283,7 +293,8 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Merhaba.. Sadece komutla çalışmaktayım. /komutlar yazarak bütün komutlara erişebilirsin.")
 
 if __name__ == '__main__':
-    tm.sleep(45)
+    flask_thread = Thread(target=run_flask)
+    flask_thread.start()
     application = ApplicationBuilder().token(token=TOKEN).build()
     
     application.job_queue.run_daily(sendMenu,days=(1,2,3,4,5), time=time(9,0,tzinfo=istanbul_tz)) 
