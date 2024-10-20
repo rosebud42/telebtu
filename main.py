@@ -14,7 +14,7 @@ import pytz
 import fitz
 import os 
 
-TOKEN = os.environ.get("telegram-TOKEN")
+TOKEN = os.environ.get("TOKEN")
 #TOKEN = "your-token"
 print(f"{TOKEN} initialized.")  
 
